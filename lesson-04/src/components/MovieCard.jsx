@@ -29,7 +29,7 @@ function MovieCard({ title, year, duration, genre, rating, poster, available }) 
           <span className="movie-card__genre">{genre}</span>
           <span className="movie-card__rating">★ {rating}</span>
         </div>
-
+      
         <div className="movie-card__user-rating">
           <span>זה היה ממש קשה </span>
           {[1, 2, 3, 4, 5].map((starNum) => (
