@@ -31,21 +31,22 @@ function MovieList() {
           genre="Sci-Fi"
           rating={8.7}
           poster="/posters/interstellar.svg"
-          available="false"
+          available={true}
         />
         <MovieCard
-          name="Parasite"
+          title="Parasite"
           year={2019}
           duration={132}
           genre="Thriller"
           rating={8.5}
           poster="/posters/parasite.svg"
-          available={true}
+          available={false}
         />
         <MovieCard
           title="Toy Story"
           year={1995}
           duration={81}
+          rating={8.8}
           genre="Animation"
           poster="/posters/toy-story.svg"
           available={true}

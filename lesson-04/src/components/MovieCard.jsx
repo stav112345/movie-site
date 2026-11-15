@@ -1,6 +1,6 @@
 import "./MovieCard.css";
 
-function MovieCard({ title, year, genre, rating, poster, available }) {
+function MovieCard({ title, year, genre, rating, poster, available,duration }) {
   return (
     <article className="movie-card">
       <div className="movie-card__poster">
@@ -10,7 +10,7 @@ function MovieCard({ title, year, genre, rating, poster, available }) {
       <div className="movie-card__body">
         <h3 className="movie-card__title">{title}</h3>
         <p className="movie-card__meta">
-          {year} · {duration} דק׳
+          {year}{duration} 
         </p>
         <div className="movie-card__footer">
           <span className="movie-card__genre">{genre}</span>
