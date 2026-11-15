@@ -19,3 +19,10 @@
   justify-content: center;
   margin-top: 32px;
 }
+.movie-card__user-rating {
+ color: gold
+}
+body
+{
+  background-color: rgb(230, 121, 121);
+}
