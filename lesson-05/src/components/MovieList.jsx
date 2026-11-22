@@ -7,7 +7,9 @@ function MovieList({ title, movies }) {
       <h2 className="movie-list__title">{title}</h2>
       <div className="movie-list__grid">
         {movies.map(movie => {
+          return (
           <MovieCard
+            key={movie.id}
             title={movie.title}
             year={movie.year}
             duration={movie.duration}
@@ -15,7 +17,9 @@ function MovieList({ title, movies }) {
             rating={movie.rating}
             poster={movie.poster}
             available={movie.available}
+        
           />
+          )
         })}
       </div>
     </section>

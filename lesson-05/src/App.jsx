@@ -4,15 +4,24 @@ import MovieList from "./components/MovieList.jsx";
 import SearchBar from "./components/SearchBar.jsx";
 import AddMovieForm from "./components/AddMovieForm.jsx";
 import { movies } from "./data/movies.js";
+import { useState } from "react";
 
 function App() {
   const [onlyAvailable, setOnlyAvailable] = useState(false);
+  const [query, setQuery] = useState("");
 
-  const topRated = movies.find(movie => movie.rating >= 8.7);
-  const shownMovies = onlyAvailable
-    ? movies.filter(movie => movie.available)
-    : movies;
+  const topRated = movies.filter(movie => movie.rating >= 8.7);
+ const text = query.trim().toLowerCase();
 
+  let shownMovies = movies;
+  if (onlyAvailable) {
+    shownMovies = shownMovies.filter(movie => movie.available);
+  }
+  if (text !== "") {
+    shownMovies = shownMovies.filter(movie =>
+      movie.title.toLowerCase().includes(text)
+    );
+  }
   function toggleAvailable() {
     setOnlyAvailable(!onlyAvailable);
   }
@@ -29,10 +38,11 @@ function App() {
         <MovieList title="הכי מדורגים" movies={topRated} />
 
         <div className="toolbar">
-          <SearchBar />
+          <SearchBar query={query} onQueryChange={setQuery} />
           <button
             className={onlyAvailable ? "btn btn--active" : "btn"}
-            onclick={toggleAvailable}
+            onClick={toggleAvailable}
+          
           >
             רק זמינים לצפייה
           </button>
