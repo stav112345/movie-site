@@ -1,6 +1,14 @@
 import "./SearchBar.css";
 
-function SearchBar({ query, onQueryChange }) {
+function SearchBar({
+  query,
+  onQueryChange,
+  genre,
+  onGenreChange,
+  sortBy,
+  onSortChange,
+})
+ {
   return (
     <div className="search-bar">
       <label className="search-bar__field search-bar__field--grow">
@@ -16,7 +24,11 @@ function SearchBar({ query, onQueryChange }) {
 
       <label className="search-bar__field">
         <span className="search-bar__label">ז׳אנר</span>
-        <select className="search-bar__input">
+         <select
+          className="search-bar__input"
+          value={genre}
+          onChange={e => onGenreChange(e.target.value)}
+        >
           <option value="all">כל הז׳אנרים</option>
           <option value="Action">Action</option>
           <option value="Animation">Animation</option>
@@ -27,10 +39,13 @@ function SearchBar({ query, onQueryChange }) {
 
       <label className="search-bar__field">
         <span className="search-bar__label">מיון</span>
-        <select className="search-bar__input">
+        <select className="search-bar__input"
+         value={sortBy}
+          onChange={e => onSortChange(e.target.value)}>
           <option value="rating">לפי דירוג</option>
           <option value="year">לפי שנה</option>
           <option value="title">לפי שם</option>
+          <option value="duration">לפי אורך</option>
         </select>
       </label>
     </div>
